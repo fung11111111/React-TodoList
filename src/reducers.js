@@ -1,15 +1,7 @@
 import {combineReducers} from 'redux';
-import { CREATE, TOGGLE_DONE } from './actionTypes';
+import { CREATE, TOGGLE_DONE, DELETE_ITEM } from './actionTypes';
 
 import {v4 as uuidv4} from 'uuid';
-
-const findItemIdxById = (todoList, id) =>{
-    for (let i = 0; i < todoList.length; i++) {
-            if(id == todoList[i].id){
-                return i;
-            }
-      }
-}
 
 const todoList = (state = [], action) =>{
     if(action.type === CREATE){
@@ -19,10 +11,16 @@ const todoList = (state = [], action) =>{
             done: false
         }
         return state.concat([newTodoItem]);
+    
     }else if(action.type === TOGGLE_DONE){
-        let idx = findItemIdxById(state, action.payload);
-        state[idx].done = !state[idx].done;
+        let itemIdx = state.map(function(item) {return item.id; }).indexOf(action.payload);
+        console.log(itemIdx);
+        state[itemIdx].done = !state[itemIdx].done;
         return state;
+    }else if(action.type === DELETE_ITEM){
+        return state.filter(item => {
+            return item.id !== action.payload
+       });
     }
     return state
 }
