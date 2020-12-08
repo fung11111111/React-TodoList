@@ -11,7 +11,6 @@ const todoList = (state = [], action) => {
             done: false
         }
         return state.concat([newTodoItem]);
-
     } else if (action.type === TOGGLE_DONE) {
         let itemIdx = state.map(function (item) { return item.id; }).indexOf(action.payload);
         state[itemIdx].done = !state[itemIdx].done;

@@ -1,13 +1,13 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import TodoItem from '../Components/TodoItem'
-import {toggleDone, deleteItem} from '../action'
-const mapStateToProps = (state) =>({
+import { toggleDone, deleteItem } from '../action'
+const mapStateToProps = (state) => ({
     todoList: state.todoList
 })
 
 const mapDispatchToProps = dispatch => {
-    return{
+    return {
         toggleDone: (id) => {
             dispatch(toggleDone(id));
         },
@@ -17,6 +17,6 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-const TodoItemContainer = connect(mapStateToProps,mapDispatchToProps)(TodoItem);
+const TodoItemContainer = connect(mapStateToProps, mapDispatchToProps)(TodoItem);
 
 export default TodoItemContainer;

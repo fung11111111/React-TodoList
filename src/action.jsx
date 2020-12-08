@@ -1,7 +1,7 @@
-import { CREATE, TOGGLE_DONE, DELETE_ITEM} from "./actionTypes"
+import { CREATE, TOGGLE_DONE, DELETE_ITEM } from "./actionTypes"
 
 export const create = (todoTask) => {
-    return{
+    return {
         type: CREATE,
         payload: todoTask
     }

@@ -1,8 +1,8 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import TodoListGroup from '../Components/TodoListGroup'
 
-const mapStateToProps = (state) =>({
+const mapStateToProps = (state) => ({
     todoList: state.todoList
 })
 

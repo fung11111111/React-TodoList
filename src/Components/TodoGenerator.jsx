@@ -13,8 +13,10 @@ export default class TodoGenerator extends Component {
     }
 
     submitTodo = () =>{
-        this.props.create(this.state.todo);
-        this.setState({todo: ''});
+        if(this.state.todo.length > 0){
+            this.props.create(this.state.todo);
+            this.setState({todo: ''});
+        }
     }
 
     render() {
@@ -22,7 +24,7 @@ export default class TodoGenerator extends Component {
     
         return (
             <div>
-                 <input type="text" plcaeholder = "add todo..." value={todo} onChange={this.changeTodo}/>
+                 <input type="text" placeholder = "add todo..." value={todo} onChange={this.changeTodo}/>
                  <input type="submit" onClick={this.submitTodo} value="add"/>
             </div>
         )
