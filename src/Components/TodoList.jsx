@@ -6,9 +6,9 @@ export default class TodoList extends Component {
     render() {
         return (
             <div>
-                <span>TodoList</span>
-                <TodoListGroupContainer/>
-                <TodoGeneratorContainer/>
+                <span>Hello, TodoList</span>
+                <TodoListGroupContainer />
+                <TodoGeneratorContainer />
             </div>
         )
     }

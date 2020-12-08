@@ -19,11 +19,11 @@ export default class TodoGenerator extends Component {
 
     render() {
         const {todo} = this.state;
-
+    
         return (
             <div>
-                 <input type="text" value={todo} onChange={this.changeTodo}/>
-                 <input type="submit" onClick={this.submitTodo}/>
+                 <input type="text" plcaeholder = "add todo..." value={todo} onChange={this.changeTodo}/>
+                 <input type="submit" onClick={this.submitTodo} value="add"/>
             </div>
         )
     }
