@@ -1,5 +1,7 @@
+
 import React, { Component } from 'react';
 import { addNewToDo } from '../apis/todo';
+
 export default class TodoGenerator extends Component {
     constructor(props) {
         super(props);
@@ -24,10 +26,9 @@ export default class TodoGenerator extends Component {
 
     render() {
         const { todo } = this.state;
-
         return (
             <div>
-                <input type="text" placeholder="add todo..." value={todo} onChange={this.changeTodo} />
+                <input type="text" placeholder="add todo..." value={todo} onChange={this.changeTodo} />  
                 <input type="submit" onClick={this.submitTodo} value="add" />
             </div>
         )
