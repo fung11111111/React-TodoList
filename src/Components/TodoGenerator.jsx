@@ -32,8 +32,15 @@ export default class TodoGenerator extends Component {
         const { todo } = this.state;
         return (
             <div className="item-generator">
-                <input type="text" placeholder="add todo..." value={todo} onChange={this.changeTodo} />
-                <input type="submit" onClick={this.submitTodo} value="add" />
+                <Search
+                    placeholder="add todo..."
+                    allowClear
+                    enterButton="Add"
+                    size="large"
+                    value={todo}
+                    onChange={this.changeTodo}
+                    onSearch={this.submitTodo}
+                />
             </div>
         )
     }

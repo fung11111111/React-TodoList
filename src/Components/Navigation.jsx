@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export default class Navitation extends Component {
     render() {
         return (
-            <Menu>
+            <Menu style={{background: "rgb(242, 242, 242)"}}>
                 <Menu.Item key="1">
                     <Link to="/">Go to list page</Link>
                 </Menu.Item>

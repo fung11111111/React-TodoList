@@ -3,7 +3,6 @@ import "./common.css"
 import { Row, Col } from 'antd';
 import { Tag } from 'antd';
 export default class DoneList extends Component {
-
     generateTag = () => {
         const { item } = this.props
         console.log(item.options);
@@ -12,9 +11,7 @@ export default class DoneList extends Component {
                 <Tag key={item.value} color="success">{item.label}</Tag>
             )
         }
-
     }
-
     render() {
         const { item } = this.props;
         return (

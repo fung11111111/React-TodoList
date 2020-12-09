@@ -17,7 +17,7 @@ function App() {
       <BrowserRouter>
         <Sider className="slide-manue"><Navitation /></Sider>
         <Layout>
-          <Header><Title level={3}>Hello, todolist</Title></Header>
+          <Title level={3}>Hello, todolist</Title>
           <Content className="main-content">
             <Switch>
               <Route exact path="/" component={TodoList}></Route>

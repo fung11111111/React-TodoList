@@ -2,7 +2,7 @@
 
 
 .App {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,8 +22,9 @@
   }
 }
 .slide-manue{
-  background-color: white;
+  background-color: rgb(242, 242, 242);
 }
+
 .main-content {
   background-color: white;
   min-height: 100vh;

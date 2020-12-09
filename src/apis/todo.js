@@ -13,7 +13,6 @@ export const deleteToDo = (id) => {
 };
 
 export const updateTodo = (id, text, done, options) => {
-    console.log(text + " " + options)
     return apis.put("/todos/"+ id, {
         text: text,
         done: done,
