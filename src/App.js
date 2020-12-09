@@ -1,6 +1,6 @@
 import { BrowserRouter, Link, Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
-import TodoList from './Components/TodoList';
+import TodoList from './Components/TodoList/index';
 import NotFoundPage from './Components/NotFoundPage';
 import DoneListConatiner from './Containers/DoneListContainer';
 

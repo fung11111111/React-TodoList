@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import TodoItem from '../Components/TodoItem'
+import TodoItem from '../Components/TodoItem/index'
 import { toggleDone, deleteItem } from '../action'
 const mapStateToProps = (state) => ({
     todoList: state.todoList

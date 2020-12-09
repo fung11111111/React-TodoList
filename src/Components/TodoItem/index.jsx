@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './TodoItemStyle.css';
-import { deleteToDo, updateTodo } from '../apis/todo';
-export default class TodoListGroup extends Component {
+import { deleteToDo, updateTodo } from '../../apis/todo';
+export default class TodoItem extends Component {
 
     onToggleDone = () => {
         const { item } = this.props;
