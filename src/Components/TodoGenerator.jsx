@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { addNewToDo } from '../apis/todo';
 export default class TodoGenerator extends Component {
     constructor(props) {
         super(props);
@@ -14,12 +14,10 @@ export default class TodoGenerator extends Component {
 
     submitTodo = () => {
         if (this.state.todo.length > 0) {
-            let newTodoItem = {
-                id: uuidv4(),
-                text: this.state.todo,
-                done: false
-            }
-            this.props.create(newTodoItem);
+            addNewToDo(this.state.todo).then((response) => {
+                console.log(response.data);
+                this.props.create(response.data);
+            })
             this.setState({ todo: '' });
         }
     }
