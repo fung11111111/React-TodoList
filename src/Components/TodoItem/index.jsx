@@ -3,8 +3,7 @@ import './TodoItemStyle.css';
 import { deleteToDo, updateTodo } from '../../apis/todo';
 import '../common.css';
 import { Row, Col } from 'antd';
-import { Button, Radio } from 'antd';
-import { Tag, Divider } from 'antd';
+import { Button } from 'antd';
 import Select from 'react-select'
 
 const options = [
@@ -23,13 +22,16 @@ export default class TodoItem extends Component {
       };
 
     handleChange = selectedOption => {
+        const { id, text, done} = this.props.item
         this.setState({ selectedOption: selectedOption });
-        console.log(selectedOption);
+        updateTodo(id, text, done, selectedOption ).then((response) => {
+            this.props.toggleDone(response.data);
+        })
       };
 
     onToggleDone = () => {
-        const { id, text, done } = this.props.item
-        updateTodo(id, text, !done).then((response) => {
+        const { id, text, done, options } = this.props.item
+        updateTodo(id, text, !done, options ).then((response) => {
             this.props.toggleDone(response.data);
         })
     }
@@ -57,7 +59,7 @@ export default class TodoItem extends Component {
                 <div className="selector">
                     <Select
                     closeMenuOnSelect={false}
-                    defaultValue={[options[0], options[1]]}
+                    value={this.props.item.options}
                     onChange={this.handleChange}
                     isMulti
                     options={options}

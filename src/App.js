@@ -9,7 +9,7 @@ import { Typography } from 'antd';
 import { Layout } from 'antd';
 
 const { Title } = Typography;
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Sider, Content } = Layout;
 function App() {
   return (
     <div className="App">
@@ -26,24 +26,11 @@ function App() {
               <Redirect to="/notFound" ></Redirect>
             </Switch>
           </Content>
-          <Footer>Footer</Footer>
         </Layout>
       </BrowserRouter>
       </Layout>
     </div>
   );
 }
-/* <Navitation/>
-      <header className="App-header">
-      
-      <BrowserRouter>
-    
-  <Switch>
-  <Route exact path = "/" component={TodoList}></Route>
-  <Route exact path = "/done" component={DoneListConatiner}></Route>
-  <Route exact path = "/notFound" component={NotFoundPage}></Route>
-  <Redirect to="/notFound" ></Redirect>
-  </Switch>
-  </BrowserRouter>
-</header> */
+
 export default App;
