@@ -7,10 +7,10 @@ export const create = (todoTask) => {
     }
 }
 
-export const toggleDone = (id) => {
+export const toggleDone = (item) => {
     return {
         type: TOGGLE_DONE,
-        payload: id
+        payload: item
     }
 }
 

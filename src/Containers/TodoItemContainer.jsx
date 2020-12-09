@@ -8,8 +8,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => {
     return {
-        toggleDone: (id) => {
-            dispatch(toggleDone(id));
+        toggleDone: (item) => {
+            dispatch(toggleDone(item));
         },
         deleteItem: (id) => {
             dispatch(deleteItem(id));

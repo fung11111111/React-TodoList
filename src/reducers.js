@@ -5,7 +5,7 @@ const todoList = (state = [], action) => {
     if (action.type === CREATE) {
         return state.concat([action.payload])
     } else if (action.type === TOGGLE_DONE) {
-        return state.map(item => item.id === action.payload ? action.payload : item);
+        return state.map(item => item.id === action.payload.id ? action.payload : item);
     } else if (action.type === DELETE_ITEM) {
         return state.filter(item => {
             return item.id !== action.payload

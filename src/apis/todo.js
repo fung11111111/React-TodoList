@@ -12,6 +12,10 @@ export const deleteToDo = (id) => {
     return apis.delete("/todos/"+ id );
 };
 
-export const updateTodo = (todo) => {
-    return apis.put("/todos/"+ todo.id, {todo} );
+export const updateTodo = (id, text, done) => {
+    console.log(text + " " + done)
+    return apis.put("/todos/"+ id, {
+        text: text,
+        done: done
+    });
 };

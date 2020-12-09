@@ -1,6 +1,11 @@
 
 import React, { Component } from 'react';
 import { addNewToDo } from '../apis/todo';
+import { Input } from 'antd';
+import { AudioOutlined } from '@ant-design/icons';
+import "./common.css";
+
+const { Search } = Input;
 
 export default class TodoGenerator extends Component {
     constructor(props) {
@@ -17,7 +22,6 @@ export default class TodoGenerator extends Component {
     submitTodo = () => {
         if (this.state.todo.length > 0) {
             addNewToDo(this.state.todo).then((response) => {
-                console.log(response.data);
                 this.props.create(response.data);
             })
             this.setState({ todo: '' });
@@ -27,8 +31,8 @@ export default class TodoGenerator extends Component {
     render() {
         const { todo } = this.state;
         return (
-            <div>
-                <input type="text" placeholder="add todo..." value={todo} onChange={this.changeTodo} />  
+            <div className="item-generator">
+                <input type="text" placeholder="add todo..." value={todo} onChange={this.changeTodo} />
                 <input type="submit" onClick={this.submitTodo} value="add" />
             </div>
         )

@@ -1,0 +1,12 @@
+.item-generator{
+    padding: 10px;
+    background-color: whitesmoke;
+}
+
+.toDoItemBlock{
+    background-color: red;
+}
+
+.doneItem{
+    color: red;
+}
