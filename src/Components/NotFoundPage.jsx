@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 export default class NotFoundPage extends Component {
     render() {
         return (
-            <div>NotFoundPage</div>
+            <div>404 Not Found</div>
         )
     }
 }
