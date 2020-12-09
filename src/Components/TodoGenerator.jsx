@@ -13,7 +13,6 @@ export default class TodoGenerator extends Component {
     }
 
     submitTodo = () => {
-        // create item here
         if (this.state.todo.length > 0) {
             let newTodoItem = {
                 id: uuidv4(),

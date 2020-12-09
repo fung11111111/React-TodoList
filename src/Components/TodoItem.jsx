@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './TodoItemStyle.css';
 export default class TodoListGroup extends Component {
 
-    onToggleDone = (event) => {
+    onToggleDone = () => {
         const { item } = this.props;
         this.props.toggleDone(item.id);
     }
