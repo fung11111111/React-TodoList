@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
 import { CREATE, TOGGLE_DONE, DELETE_ITEM } from './actionTypes';
 
-import { v4 as uuidv4 } from 'uuid';
-
 const todoList = (state = [], action) => {
     if (action.type === CREATE) {
         return state.concat([action.payload]);
