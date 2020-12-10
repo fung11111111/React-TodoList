@@ -14,10 +14,9 @@ export const updateTodo = (item) => {
     }
 }
 
-export const deleteItem = (id) => {
+export const deleteItem = () => {
     return {
         type: DELETE_ITEM,
-        payload: id
     }
 }
 
