@@ -1,19 +1,31 @@
 import React, { Component } from 'react';
 import './TodoItemStyle.css';
 import { deleteToDo, updateTodo, getTodoList } from '../../apis/todo';
+import { getLabels } from '../../apis/label';
 import '../common.css';
 import { Row, Col } from 'antd';
 import { Button } from 'antd';
-import Select from 'react-select'
+
 import { options, customStyles } from './SelectorStyle'
+
+import { Select, Radio } from 'antd';
+const { Option } = Select;
+
 
 export default class TodoItem extends Component {
 
+    componentDidMount() {
+        getLabels().then((response) => {
+            this.props.initLabels(response.data);
+        })
+    }
+
     handleChange = selectedOption => {
         const { id, text, done } = this.props.item
-        updateTodo(id, text, done, selectedOption).then((response) => {
-            this.props.updateTodo(response.data);
-        })
+        console.log(selectedOption);
+        // updateTodo(id, text, done, selectedOption).then((response) => {
+        //     this.props.updateTodo(response.data);
+        // })
     };
 
     onToggleDone = () => {
@@ -38,6 +50,12 @@ export default class TodoItem extends Component {
     render() {
         const { text, done } = this.props.item;
         const textSyle = done ? "textStyle" : "";
+        const { labels } = this.props;
+        const labelTexts = [];
+        labels.map((label) => {
+            labelTexts.push(<Option key={label.id}>{label.content}</Option>);
+        })
+        console.log(labelTexts);
 
         return (
             <div className="item">
@@ -49,14 +67,26 @@ export default class TodoItem extends Component {
                 </Row>
                 <Row>
                     <div className="selector-block">
-                        <Select
+                        {/* <Select
                             styles={customStyles}
                             closeMenuOnSelect={false}
                             value={this.props.item.options}
                             onChange={this.handleChange}
                             isMulti
                             options={options}
-                        />
+                        /> */}
+                        <Col span={24}>
+                            <Select
+                                mode="tags"
+                                size="small"
+                                placeholder="Please select"
+                                defaultValue={[]}
+                                onChange={this.handleChange}
+                                style={{ width: '200px' }}
+                            >
+                                {labelTexts}
+                            </Select>
+                        </Col>
                     </div>
                 </Row>
             </div>

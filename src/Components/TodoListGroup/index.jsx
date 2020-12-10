@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getTodoList } from '../../apis/todo';
+import { getLabels } from '../../apis/label';
 import TodoItemContainer from '../../Containers/TodoItemContainer';
 import '../common.css';
 

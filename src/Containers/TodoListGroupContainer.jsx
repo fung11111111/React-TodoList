@@ -1,15 +1,19 @@
 import { connect } from 'react-redux';
 
 import TodoListGroup from '../Components/TodoListGroup/index'
-import { initTodoList } from '../action'
+import { initTodoList, initLabels } from '../action'
 const mapStateToProps = (state) => ({
-    todoList: state.todoList
+    todoList: state.todoList,
+    labels: state.labels
 })
 
 const mapDispatchToProps = dispatch => {
     return {
         initTodoList: (todos) => {
             dispatch(initTodoList(todos));
+        },
+        initLabels: (labels) => {
+            dispatch(initLabels(labels));
         }
        
     };

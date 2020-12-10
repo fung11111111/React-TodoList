@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 
 import TodoItem from '../Components/TodoItem/index'
-import { updateTodo, deleteItem, initTodoList } from '../action'
+import { updateTodo, deleteItem, initTodoList, initLabels } from '../action'
 const mapStateToProps = (state) => ({
-    todoList: state.todoList
+    todoList: state.todoList,
+    labels: state.labels
 })
 
 const mapDispatchToProps = dispatch => {
@@ -16,7 +17,10 @@ const mapDispatchToProps = dispatch => {
         },
         initTodoList: (todos) => {
             dispatch(initTodoList(todos));
-        }
+        },
+        initLabels: (labels) => {
+            dispatch(initLabels(labels));
+        },
     };
 };
 
