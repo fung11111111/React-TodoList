@@ -1,4 +1,4 @@
-import { CREATE, TOGGLE_DONE, DELETE_ITEM, INIT_TODOS, CREATE_LABEl} from "./actionTypes"
+import { CREATE, UPDATETODO, DELETE_ITEM, INIT_TODOS, CREATE_LABEl} from "./actionTypes"
 
 export const create = (todoTask) => {
     return {
@@ -7,9 +7,9 @@ export const create = (todoTask) => {
     }
 }
 
-export const toggleDone = (item) => {
+export const updateTodo = (item) => {
     return {
-        type: TOGGLE_DONE,
+        type: UPDATETODO,
         payload: item
     }
 }

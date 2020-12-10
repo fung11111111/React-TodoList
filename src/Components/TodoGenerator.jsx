@@ -14,13 +14,6 @@ const tailLayout = {
 };
 
 export default class TodoGenerator extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            todo: ''
-        }
-    }
-
     changeTodo = (event) => {
         this.setState({ todo: event.target.value });
     }

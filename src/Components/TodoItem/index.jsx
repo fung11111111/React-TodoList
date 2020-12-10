@@ -12,15 +12,14 @@ export default class TodoItem extends Component {
     handleChange = selectedOption => {
         const { id, text, done} = this.props.item
         updateTodo(id, text, done, selectedOption ).then((response) => {
-            //rename toggleDone as update
-            this.props.toggleDone(response.data);
+            this.props.updateTodo(response.data);
         })
       };
 
     onToggleDone = () => {
         const { id, text, done, options } = this.props.item
         updateTodo(id, text, !done, options ).then((response) => {
-            this.props.toggleDone(response.data);
+            this.props.updateTodo(response.data);
         })
     }
 

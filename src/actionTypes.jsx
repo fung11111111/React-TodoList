@@ -1,6 +1,6 @@
 export const CREATE = "CREATE";
 
-export const TOGGLE_DONE = "DONE";
+export const UPDATETODO = "UPDATE";
 
 export const DELETE_ITEM = "DELETE";
 
