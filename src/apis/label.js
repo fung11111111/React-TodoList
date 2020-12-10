@@ -9,4 +9,9 @@ export const createLabel = (content, color) => {
         content,
         color
     });
-}
+};
+
+export const deleteLabel = (id) => {
+    return apis.delete("/labels/" + id);
+};
+

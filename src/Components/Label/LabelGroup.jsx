@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import { getLabels } from '../../apis/label';
-
+import LabelContainer from '../../Containers/LabelContainer/LabelContainer';
+import Label from './Label';
 
 
 export default class LabelGroup extends Component {
     componentDidMount() {
         getLabels().then((response) => {
-           console.log(response.data);
+            this.props.initLabels(response.data);
         })
     }
+
     render() {
-        return (
-           <div>label group</div>
+        return this.props.labels.map((label) =>
+            <LabelContainer key={label.id} label={label} />
         )
     }
 }

@@ -17,17 +17,13 @@ const tailLayout = {
 
 export default class LabelGenerator extends Component {
 
-  
-      onFinish = values => {
-        console.log(values.color);
-        console.log(values.label);
 
-
+    onFinish = values => {
         createLabel(values.label, values.color).then((response) => {
-            console.log(response.data);
+            this.props.create_label(response.data);
         })
 
-      };
+    };
 
     render() {
         return (
@@ -43,6 +39,9 @@ export default class LabelGenerator extends Component {
                         <Option value="yellow">yellow</Option>
                         <Option value="green">green</Option>
                         <Option value="red">red</Option>
+                        <Option value="orange">orange</Option>
+                        <Option value="purple">purple</Option>
+                        <Option value="blue">blue</Option>
                     </Select>
                 </Form.Item>
                 <Form.Item {...tailLayout}>
