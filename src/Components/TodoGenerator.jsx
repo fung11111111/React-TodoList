@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { addNewToDo } from '../apis/todo';
 import { Input } from 'antd';
-import { AudioOutlined } from '@ant-design/icons';
 import "./common.css";
 
 const { Search } = Input;
@@ -34,7 +33,6 @@ export default class TodoGenerator extends Component {
             <div className="item-generator">
                 <Search
                     placeholder="add todo..."
-                    allowClear
                     enterButton="Add"
                     size="large"
                     value={todo}

@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
 import './App.css';
 import TodoList from './Components/TodoList/index';
@@ -9,7 +9,7 @@ import { Typography } from 'antd';
 import { Layout } from 'antd';
 
 const { Title } = Typography;
-const { Header, Sider, Content } = Layout;
+const { Sider, Content } = Layout;
 function App() {
   return (
     <div className="App">
