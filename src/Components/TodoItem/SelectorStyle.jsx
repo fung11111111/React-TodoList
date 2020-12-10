@@ -14,7 +14,6 @@ export const options = [
       padding: 20,
     }),
     control: () => ({
-      // none of react-select's styles are passed to <Control />
       width: 400,
     }),
     singleValue: (provided, state) => {

@@ -8,7 +8,7 @@ export default class DoneList extends Component {
         console.log(item.options);
         if (item.options != null) {
             return item.options.map(item =>
-                <Tag key={item.value} color="success">{item.label}</Tag>
+                <Tag key={item.value} color="#2db7f5">{item.label}</Tag>
             )
         }
     }
