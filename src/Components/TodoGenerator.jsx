@@ -1,10 +1,17 @@
-
 import React, { Component } from 'react';
 import { addNewToDo } from '../apis/todo';
 import { Input } from 'antd';
 import "./common.css";
+import { Form, Button } from 'antd';
 
-const { Search } = Input;
+const layout = {
+    labelCol: { span: 2 },
+    wrapperCol: { span: 16 },
+};
+
+const tailLayout = {
+    wrapperCol: { offset: 8, span: 16 },
+};
 
 export default class TodoGenerator extends Component {
     constructor(props) {
@@ -27,19 +34,26 @@ export default class TodoGenerator extends Component {
         }
     }
 
+    onFinish = values => {
+        if (values.todo.length > 0) {
+            addNewToDo(values.todo).then((response) => {
+                this.props.create(response.data);
+            })
+        }
+    };
+
     render() {
-        const { todo } = this.state;
         return (
-            <div className="item-generator">
-                <Search
-                    placeholder="add todo..."
-                    enterButton="Add"
-                    size="large"
-                    value={todo}
-                    onChange={this.changeTodo}
-                    onSearch={this.submitTodo}
-                />
-            </div>
+            <Form {...layout} ref={this.formRef} name="control-ref" onFinish={this.onFinish}>
+                <Form.Item name="todo" label="Todo" >
+                    <Input />
+                </Form.Item>
+                <Form.Item {...tailLayout}>
+                    <Button type="primary" htmlType="submit">
+                        Submit
+                    </Button>
+                </Form.Item>
+            </Form>
         )
     }
 }
