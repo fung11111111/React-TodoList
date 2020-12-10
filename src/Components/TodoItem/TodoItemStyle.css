@@ -10,6 +10,10 @@
     border-radius: 5px;
 }
 
-.selector{
+.selector-block{
     padding: 2px;
+}
+.selector Select {
+   width: 30px;
+
 }

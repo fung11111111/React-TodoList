@@ -5,25 +5,12 @@ import '../common.css';
 import { Row, Col } from 'antd';
 import { Button } from 'antd';
 import Select from 'react-select'
-
-const options = [
-    { value: 'sports', label: 'Sports' },
-    { value: 'shopping', label: 'Shopping' },
-    { value: 'movie', label: 'Movie' },
-    { value: 'reading', label: 'Reading' },
-    { value: 'music', label: 'Music' },
-    { value: 'training', label: 'Training' },
-    { value: 'work', label: 'Work' }
-  ];
+import {options, customStyles} from './SelectorStyle'
 
 export default class TodoItem extends Component {
-    state = {
-        selectedOption: '',
-      };
-
+  
     handleChange = selectedOption => {
         const { id, text, done} = this.props.item
-        this.setState({ selectedOption: selectedOption });
         updateTodo(id, text, done, selectedOption ).then((response) => {
             this.props.toggleDone(response.data);
         })
@@ -56,8 +43,9 @@ export default class TodoItem extends Component {
                     </Col>
                 </Row>
                 <Row>
-                <div className="selector">
+                <div className="selector-block">
                     <Select
+                    styles={customStyles}
                     closeMenuOnSelect={false}
                     value={this.props.item.options}
                     onChange={this.handleChange}
