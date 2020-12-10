@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { CREATE, TOGGLE_DONE, DELETE_ITEM, INIT_TODOS } from './actionTypes';
+import { CREATE, TOGGLE_DONE, DELETE_ITEM, INIT_TODOS, CREATE_LABEl } from './actionTypes';
 
 const todoList = (state = [], action) => {
     if (action.type === CREATE) {
@@ -16,6 +16,15 @@ const todoList = (state = [], action) => {
     return state
 }
 
+
+const labels = (state = [], action) => {
+    if (action.type === CREATE_LABEl){
+        return state.concat([action.payload])
+    }
+
+    return state;
+}
+
 export default combineReducers({
-    todoList
+    todoList, labels
 });

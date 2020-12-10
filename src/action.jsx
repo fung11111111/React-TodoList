@@ -1,4 +1,4 @@
-import { CREATE, TOGGLE_DONE, DELETE_ITEM, INIT_TODOS} from "./actionTypes"
+import { CREATE, TOGGLE_DONE, DELETE_ITEM, INIT_TODOS, CREATE_LABEl} from "./actionTypes"
 
 export const create = (todoTask) => {
     return {
@@ -25,5 +25,12 @@ export const initTodoList = todos => {
     return {
         type: INIT_TODOS,
         payload: todos
+    }
+}
+
+export const create_label = (label) => {
+    return {
+        type: CREATE_LABEl,
+        payload: label
     }
 }

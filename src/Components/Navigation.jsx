@@ -13,6 +13,9 @@ export default class Navitation extends Component {
                 <Menu.Item key="2">
                     <Link to="/done">Go to done page</Link>
                 </Menu.Item>
+                <Menu.Item key="3">
+                    <Link to="/label">Generate Label</Link>
+                </Menu.Item>
             </Menu>
         )
     }

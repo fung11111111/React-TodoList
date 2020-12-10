@@ -12,6 +12,7 @@ export default class TodoItem extends Component {
     handleChange = selectedOption => {
         const { id, text, done} = this.props.item
         updateTodo(id, text, done, selectedOption ).then((response) => {
+            //rename toggleDone as update
             this.props.toggleDone(response.data);
         })
       };

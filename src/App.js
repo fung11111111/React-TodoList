@@ -7,6 +7,7 @@ import DoneListConatiner from './Containers/DoneListContainer';
 import Navitation from './Components/Navigation';
 import { Typography } from 'antd';
 import { Layout } from 'antd';
+import LabelController from './Components/Label/LabelController';
 
 const { Title } = Typography;
 const { Sider, Content } = Layout;
@@ -22,6 +23,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={TodoList}></Route>
               <Route exact path="/done" component={DoneListConatiner}></Route>
+              <Route exact path="/label" component={LabelController}></Route>              
               <Route exact path="/notFound" component={NotFoundPage}></Route>
               <Redirect to="/notFound" ></Redirect>
             </Switch>
