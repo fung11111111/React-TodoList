@@ -21,16 +21,20 @@ export default class TodoItem extends Component {
     }
 
     handleChange = selectedOption => {
-        const { id, text, done } = this.props.item
-        console.log(selectedOption);
-        // updateTodo(id, text, done, selectedOption).then((response) => {
-        //     this.props.updateTodo(response.data);
-        // })
+        const { id, text, done } = this.props.item;
+        const { labels } = this.props;
+        const newLabel = labels.filter(label => 
+            selectedOption.includes(label.id)
+        )
+        updateTodo(id, text, done, newLabel).then((response) => {
+            console.log("update");
+            this.props.updateTodo(response.data);
+        })
     };
 
     onToggleDone = () => {
-        const { id, text, done, options } = this.props.item
-        updateTodo(id, text, !done, options).then((response) => {
+        const { id, text, done, labels } = this.props.item
+        updateTodo(id, text, !done, labels).then((response) => {
             this.props.updateTodo(response.data);
         })
     }
@@ -46,17 +50,44 @@ export default class TodoItem extends Component {
         })
     }
 
+    // generateDefaulLabel = () => {
+    //     const defaultLabel = [];
+    //     if(this.props.item.labels != null){
+    //         this.props.item.labels.map((label) => {
+    //             defaultLabel.push(label.content);
+    //         })
+    //     }
+    //     return defaultLabel;
+    // }
+
+    // generateLabelOptions = () => {
+    //     const labelOptions = [];
+    //     const { labels } = this.props;
+    //     labels.map((label) => {
+    //         labelOptions.push(<Option key={label.id}>{label.content}</Option>);
+    //     });
+
+    //     return labelOptions;
+    // }
 
     render() {
         const { text, done } = this.props.item;
         const textSyle = done ? "textStyle" : "";
+        
+        const labelOptions = [];
         const { labels } = this.props;
-        const labelTexts = [];
         labels.map((label) => {
-            labelTexts.push(<Option key={label.id}>{label.content}</Option>);
-        })
-        console.log(labelTexts);
+            labelOptions.push(<Option key={label.id}>{label.content}</Option>);
+        });
 
+        const defaultLabel = [];
+        if(this.props.item.labels != null){
+            this.props.item.labels.map((label) => {
+                defaultLabel.push(label.content);
+            })
+        }
+
+    
         return (
             <div className="item">
                 <Row>
@@ -67,24 +98,16 @@ export default class TodoItem extends Component {
                 </Row>
                 <Row>
                     <div className="selector-block">
-                        {/* <Select
-                            styles={customStyles}
-                            closeMenuOnSelect={false}
-                            value={this.props.item.options}
-                            onChange={this.handleChange}
-                            isMulti
-                            options={options}
-                        /> */}
                         <Col span={24}>
                             <Select
                                 mode="tags"
                                 size="small"
                                 placeholder="Please select"
-                                defaultValue={[]}
+                                defaultValue={defaultLabel}
                                 onChange={this.handleChange}
                                 style={{ width: '200px' }}
                             >
-                                {labelTexts}
+                                {labelOptions}
                             </Select>
                         </Col>
                     </div>

@@ -16,6 +16,6 @@ export const updateTodo = (id, text, done, options) => {
     return apis.put("/todos/"+ id, {
         text,
         done,
-        options
+        labels: options
     });
 };
