@@ -41,15 +41,10 @@ export default class TodoItem extends Component {
         })
     }
 
-    // remove 204 status
-    // add catch
-    // shd call action to dipatch
     deleteItem = () => {
         const { item } = this.props;
         deleteToDo(item.id).then((response) => {
-            getTodoList().then((response) => {
-                this.props.initTodoList(response.data);
-            })
+            this.props.deleteItem(item.id);
         })
     }
 
@@ -73,7 +68,7 @@ export default class TodoItem extends Component {
                 <Row>
                     <Col span={20}><label className={textSyle} onClick={this.onToggleDone}>{text}</label></Col>
                     <Col span={2} offset={1}>
-                        <Button shape="circle" onClick={this.deleteItem} danger icon={<DeleteOutlined/>} ></Button>
+                        <Button shape="circle" onClick={this.deleteItem} danger icon={<DeleteOutlined />} ></Button>
                     </Col>
                 </Row>
                 <Row>

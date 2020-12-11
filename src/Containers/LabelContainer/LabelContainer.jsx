@@ -11,8 +11,8 @@ const mapDispatchToProps = dispatch => {
         initLabels: (labels) => {
             dispatch(initLabels(labels));
         },
-        deleteLabel: () => {
-            dispatch(deleteLabel());
+        deleteLabel: (id) => {
+            dispatch(deleteLabel(id));
         }
     };
 };

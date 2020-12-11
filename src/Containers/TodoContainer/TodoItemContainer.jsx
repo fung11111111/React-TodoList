@@ -12,8 +12,8 @@ const mapDispatchToProps = dispatch => {
         updateTodo: (item) => {
             dispatch(updateTodo(item));
         },
-        deleteItem: () => {
-            dispatch(deleteItem());
+        deleteItem: (id) => {
+            dispatch(deleteItem(id));
         },
         initTodoList: (todos) => {
             dispatch(initTodoList(todos));

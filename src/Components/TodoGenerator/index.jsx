@@ -33,7 +33,7 @@ export default class TodoGenerator extends Component {
                 <Col span={10} offset={4}>
                     <Form.Item {...tailLayout}>
                         <Button type="primary" htmlType="submit">
-                            Submit
+                            Add
                     </Button>
                     </Form.Item>
                 </Col>

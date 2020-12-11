@@ -8,11 +8,7 @@ export default class Label extends Component {
     deleteItem = () => {
         const { label } = this.props;
         deleteLabel(label.id).then((response) => {
-            if (response.status === 204) {
-                getLabels().then((response) => {
-                    this.props.initLabels(response.data);
-                 })
-            }
+          this.props.deleteLabel(label.id);
         })
     }
 

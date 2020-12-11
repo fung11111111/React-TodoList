@@ -14,9 +14,10 @@ export const updateTodo = (item) => {
     }
 }
 
-export const deleteItem = () => {
+export const deleteItem = (id) => {
     return {
         type: DELETE_ITEM,
+        payload: id
     }
 }
 
@@ -42,8 +43,9 @@ export const create_label = (label) => {
 
 }
 
-export const deleteLabel = () => {
+export const deleteLabel = (id) => {
     return {
-        type: DELETE_LABEl
+        type: DELETE_LABEl,
+        payload: id
     }
 }

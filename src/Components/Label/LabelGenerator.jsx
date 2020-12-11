@@ -46,7 +46,7 @@ export default class LabelGenerator extends Component {
                 </Form.Item>
                 <Form.Item {...tailLayout}>
                     <Button type="primary" htmlType="submit">
-                        Submit
+                        Add
                     </Button>
                 </Form.Item>
             </Form>
