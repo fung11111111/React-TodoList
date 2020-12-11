@@ -29,7 +29,6 @@ export default class TodoItem extends Component {
         }
 
         updateTodo(id, text, done, addLabel).then((response) => {
-            console.log(response.data);
             this.props.updateTodo(response.data);
         })
     };
