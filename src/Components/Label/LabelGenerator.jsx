@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Input, Button, Select } from 'antd';
 import { createLabel } from '../../apis/label';
-import "../common.css"
-
+import "../common.css";
+import "./label.css";
 const layout = {
     labelCol: { span: 2 },
     wrapperCol: { span: 16 },
@@ -26,6 +26,7 @@ export default class LabelGenerator extends Component {
 
     render() {
         return (
+            <div className="label-generator-form">
             <Form {...layout} ref={this.formRef} name="control-ref" onFinish={this.onFinish}>
                 <Form.Item name="label" label="Label" rules={[{ required: true }]}>
                     <Input />
@@ -49,6 +50,7 @@ export default class LabelGenerator extends Component {
                     </Button>
                 </Form.Item>
             </Form>
+            </div>
         )
     }
 }
