@@ -17,7 +17,7 @@ export const customStyles = {
         color: state.selectProps.menuColor,
     }),
     control: () => ({
-        width: 400,
+        width: 400
     }),
     singleValue: (provided, state) => {
         const opacity = state.isDisabled ? 0.5 : 1;

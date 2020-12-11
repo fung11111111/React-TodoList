@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import "../common.css"
 import { Form, Input, Button, Select } from 'antd';
 import { createLabel } from '../../apis/label';
+import "../common.css"
 
 
 const layout = {

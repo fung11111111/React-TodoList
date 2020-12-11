@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Row, Col, Tag, Button } from 'antd';
-import "./label.css";
+import {Tag, Button } from 'antd';
 import { deleteLabel, getLabels } from '../../apis/label';
 import { DeleteOutlined } from '@ant-design/icons';
+import "./label.css";
 export default class Label extends Component {
 
     deleteItem = () => {

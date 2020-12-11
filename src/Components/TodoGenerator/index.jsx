@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { addNewToDo } from '../apis/todo';
+import { addNewToDo } from '../../apis/todo';
 import { Input } from 'antd';
-import "./common.css";
 import { Form, Button } from 'antd';
+import "../common.css";
 
 const layout = {
     labelCol: { span: 2 },
@@ -14,18 +14,6 @@ const tailLayout = {
 };
 
 export default class TodoGenerator extends Component {
-    changeTodo = (event) => {
-        this.setState({ todo: event.target.value });
-    }
-
-    submitTodo = () => {
-        if (this.state.todo.length > 0) {
-            addNewToDo(this.state.todo).then((response) => {
-                this.props.create(response.data);
-            })
-            this.setState({ todo: '' });
-        }
-    }
 
     onFinish = values => {
         if (values.todo.length > 0) {
@@ -35,6 +23,7 @@ export default class TodoGenerator extends Component {
         }
     };
 
+    // remove old data
     render() {
         return (
             <Form {...layout} ref={this.formRef} name="control-ref" onFinish={this.onFinish}>

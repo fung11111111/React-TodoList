@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import "../common.css";
-import LabelGroup from './LabelGroup';
 import LabelGeneratorContainer from '../../Containers/LabelContainer/LabelGenertatorContainer';
 import LabelGroupContainer from '../../Containers/LabelContainer/LabelGroupContainer';
-
+import "../common.css";
 export default class LabelController extends Component {
 
     render() {

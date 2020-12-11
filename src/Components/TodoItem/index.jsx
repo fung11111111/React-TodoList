@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
-import './TodoItemStyle.css';
 import { deleteToDo, updateTodo, getTodoList } from '../../apis/todo';
 import { getLabels } from '../../apis/label';
+import { Row, Col, Button } from 'antd';
+import Select from 'react-select'
+import './TodoItemStyle.css';
 import '../common.css';
-import { Row, Col } from 'antd';
-import { Button } from 'antd';
-
-import { options, customStyles } from './SelectorStyle'
-
-import { Select, Radio } from 'antd';
-const { Option } = Select;
+import { customStyles } from './SelectorStyle';
+// const { Option } = Select;
 
 
+const reactSelectoptions = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' }
+]
+
+
+const myStyle = customStyles;
 export default class TodoItem extends Component {
 
     componentDidMount() {
@@ -20,14 +25,19 @@ export default class TodoItem extends Component {
         })
     }
 
+    //todo refactor the logic
     handleChange = selectedOption => {
         const { id, text, done } = this.props.item;
         const { labels } = this.props;
-        const newLabel = labels.filter(label => 
-            selectedOption.includes(label.id)
-        )
-        updateTodo(id, text, done, newLabel).then((response) => {
-            console.log("update");
+        const addLabel = [];
+        if (Array.isArray(selectedOption)){
+            for (let i = 0; i < selectedOption.length; i++) {
+                addLabel.push(labels.find(label => label.id === selectedOption[i].value));
+            }
+        }
+       
+        updateTodo(id, text, done, addLabel).then((response) => {
+            console.log(response.data);
             this.props.updateTodo(response.data);
         })
     };
@@ -39,55 +49,38 @@ export default class TodoItem extends Component {
         })
     }
 
+    // remove 204 status
+    // add catch
+    // shd call action to dipatch
     deleteItem = () => {
         const { item } = this.props;
         deleteToDo(item.id).then((response) => {
-            if (response.status === 204) {
-                getTodoList().then((response) => {
-                    this.props.initTodoList(response.data);
-                })
-            }
+            getTodoList().then((response) => {
+                this.props.initTodoList(response.data);
+            })
         })
     }
 
-    // generateDefaulLabel = () => {
-    //     const defaultLabel = [];
-    //     if(this.props.item.labels != null){
-    //         this.props.item.labels.map((label) => {
-    //             defaultLabel.push(label.content);
-    //         })
-    //     }
-    //     return defaultLabel;
-    // }
-
-    // generateLabelOptions = () => {
-    //     const labelOptions = [];
-    //     const { labels } = this.props;
-    //     labels.map((label) => {
-    //         labelOptions.push(<Option key={label.id}>{label.content}</Option>);
-    //     });
-
-    //     return labelOptions;
-    // }
-
+    //can extract the const in a method to initiate
     render() {
         const { text, done } = this.props.item;
         const textSyle = done ? "textStyle" : "";
-        
+
         const labelOptions = [];
+        //todo refactor the logic
         const { labels } = this.props;
         labels.map((label) => {
-            labelOptions.push(<Option key={label.id}>{label.content}</Option>);
+            labelOptions.push({ value: label.id, label: label.content });
         });
 
-        const defaultLabel = [];
-        if(this.props.item.labels != null){
-            this.props.item.labels.map((label) => {
-                defaultLabel.push(label.content);
-            })
-        }
+        console.log(labelOptions);
 
-    
+        //todo refactor the logic
+        const defaultLabel = [];
+        this.props.item.labels.map((label) => {
+            defaultLabel.push({value: label.id, label: label.content});
+        })
+        // select style
         return (
             <div className="item">
                 <Row>
@@ -96,21 +89,29 @@ export default class TodoItem extends Component {
                         <Button type="primary" shape="circle" onClick={this.deleteItem} danger>X</Button>
                     </Col>
                 </Row>
-                <Row>
+                {/* <Row>
                     <div className="selector-block">
-                        <Col span={24}>
-                            <Select
-                                mode="tags"
-                                size="small"
-                                placeholder="Please select"
-                                defaultValue={defaultLabel}
-                                onChange={this.handleChange}
-                                style={{ width: '200px' }}
-                            >
-                                {labelOptions}
-                            </Select>
-                        </Col>
+                        <Select
+                            mode="tags"
+                            size="small"
+                            placeholder="Please select"
+                            defaultValue={defaultLabel}
+                            onChange={this.handleChange}
+                            style={{ width: '200px' }}
+                        >
+                            {labelOptions}
+                        </Select>
                     </div>
+                </Row> */}
+                <Row>
+                    <Select
+                        closeMenuOnSelect={false}
+                        defaultValue={defaultLabel}
+                        isMulti
+                        options={labelOptions}
+                        styles={myStyle}
+                        onChange={this.handleChange}
+                    />
                 </Row>
             </div>
         )

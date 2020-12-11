@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import "./common.css";
 import { Menu } from 'antd'
 import { Link } from 'react-router-dom';
+import "./common.css";
 
 export default class Navitation extends Component {
     render() {

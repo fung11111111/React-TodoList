@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import "./common.css"
-import { Row, Col } from 'antd';
-import { Tag } from 'antd';
+import { Row, Col, Tag } from 'antd';
+import "../common.css";
 export default class DoneItem extends Component {
     generateTag = () => {
         const { item } = this.props
-        if (item.options != null) {
-            return item.options.map(item =>
-                <Tag key={item.value} color="#2db7f5">{item.label}</Tag>
-            )
-        }
+
+        return item.labels.map(label =>
+            <Tag key={label.id} color={label.color}>{label.content}</Tag>
+        )
+
     }
     render() {
         const { item } = this.props;

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { CREATE, UPDATETODO, DELETE_ITEM, INIT_TODOS, CREATE_LABEl, INIT_LABEL } from './actionTypes';
+import { CREATE, UPDATETODO, INIT_TODOS, CREATE_LABEl, INIT_LABEL } from './actionTypes';
 
 const todoList = (state = [], action) => {
     if (action.type === CREATE) {
