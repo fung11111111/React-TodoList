@@ -8,6 +8,7 @@
     margin: 10px;
     border: 2px solid rgb(63, 158, 187);
     border-radius: 5px;
+    text-align: left;
 }
 
 .selector-block{

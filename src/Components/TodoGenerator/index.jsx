@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { addNewToDo } from '../../apis/todo';
 import { Input } from 'antd';
-import { Form, Button } from 'antd';
+import { Form, Button, Col, Row } from 'antd';
 import "../common.css";
 
 const layout = {
@@ -23,18 +23,20 @@ export default class TodoGenerator extends Component {
         }
     };
 
-    // remove old data
     render() {
         return (
             <Form {...layout} ref={this.formRef} name="control-ref" onFinish={this.onFinish}>
-                <Form.Item name="todo" label="Todo" >
+                <Col span={16} offset={4}><Form.Item name="todo" label="Todo" >
                     <Input />
                 </Form.Item>
-                <Form.Item {...tailLayout}>
-                    <Button type="primary" htmlType="submit">
-                        Submit
+                </Col>
+                <Col span={10} offset={4}>
+                    <Form.Item {...tailLayout}>
+                        <Button type="primary" htmlType="submit">
+                            Submit
                     </Button>
-                </Form.Item>
+                    </Form.Item>
+                </Col>
             </Form>
         )
     }

@@ -3,7 +3,6 @@ import { Form, Input, Button, Select } from 'antd';
 import { createLabel } from '../../apis/label';
 import "../common.css"
 
-
 const layout = {
     labelCol: { span: 2 },
     wrapperCol: { span: 16 },
